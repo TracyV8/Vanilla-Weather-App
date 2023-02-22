@@ -12,16 +12,17 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
     <div class="container">
       <div class="border">
       <div class="surround">
-        <h1>City</h1>
+        <h1 id="city"></h1> <span id="country"></span>
         <ul>
-          <li>Date Time</li>
-          <li>Description</li>
+          <li id ="date"></li>
+          <li id="description"></li>
         </ul>
         <div class="row">
           <div class="col-6">
@@ -31,7 +32,7 @@
               alt="sunny"
               id="icon"
             />
-            <strong id="temperature"> 12 </strong> <span class="units">°C | ° F </span>
+            <strong id="temperature"></strong> <span class="units">°C | ° F </span>
             </div>
           </div>
           <div class="col-6">
