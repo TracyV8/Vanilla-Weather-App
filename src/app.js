@@ -7,6 +7,13 @@ function displayTemperature(response) {
     response.data.condition.description;
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#country").innerHTML = response.data.country;
+  document.querySelector("#pressure").innerHTML =
+    response.data.temperature.pressure;
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 let city = "Perth";
 let apiKey = "f5f0a9eb4490812b8cb30o193ft06985";
