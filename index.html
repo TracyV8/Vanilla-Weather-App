@@ -17,8 +17,19 @@
   </head>
   <body>
     <div class="container">
-      <div class="border">
+      <div class="wrapper">
       <div class="surround">
+        <form id="search-form" class="mb-3">
+          <div class = "row">
+            <div class = "col-9">
+              <input type="search" placeholder="Type a city..." class="form-control" id="city-input">
+            </div>
+            <div class = "col-3">
+              <input type="submit" value = "Search" class = "btn btn-primary w-100">
+            </div>
+
+          </div>
+        </form>
         <h1 id="city"></h1> <span id="country"></span>
         <ul>
           <li id ="date"> Monday</li>
@@ -29,7 +40,7 @@
             <div class="d-flex weather-temperature">
             <img
               src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
-              
+              alt = "clear sky"
               id="icon"
             />
             <strong id="temperature"></strong> <span class="units">°C | ° F </span>
