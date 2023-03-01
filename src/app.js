@@ -20,7 +20,8 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response.data.daily);
   let forcastElemnet = document.querySelector("#forcast");
   let forcastHTML = `<div class ="row">`;
   let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tues"];
@@ -40,9 +41,15 @@ function displayForcast() {
   forcastHTML = forcastHTML + `</div>`;
   forcastElemnet.innerHTML = forcastHTML;
 }
+function getForcast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f5f0a9eb4490812b8cb30o193ft06985";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForcast);
+}
 
 function displayTemperature(response) {
-  console.log(response.data);
+  //console.log(response.data);
   celsiusTemperature = response.data.temperature.current;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.temperature.current
@@ -66,6 +73,8 @@ function displayTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+
+  getForcast(response.data.coordinates);
 }
 function search(city) {
   let apiKey = "f5f0a9eb4490812b8cb30o193ft06985";
@@ -109,4 +118,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Perth");
-displayForcast();
+//displayForcast();
