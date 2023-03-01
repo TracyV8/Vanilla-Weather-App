@@ -67,3 +67,21 @@ li {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+.weather-forcast {
+  margin-top: 15px;
+}
+ 
+
+.forcast-day {
+  font size: 16px;
+ color: blue;
+ opacity: 0.6;
+
+}
+.forcast-temp {
+  font-size:10px;
+  color: brown;
+}
+.forcast-temp-min {
+  opacity: 0.6;
+}
