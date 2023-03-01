@@ -20,6 +20,26 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function displayForcast() {
+  let forcastElemnet = document.querySelector("#forcast");
+  let forcastHTML = `<div class ="row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
+  <div class="col-2">
+          <div class = "forcast-day"> ${day}</div>
+          <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
+              alt = "clear sky"
+              id="icon"
+              width="40"/>
+              <div class="forcast-temp"> <span class = "forcast-temp-max"> 20° </span> <span class ="forcast-temp-min"> 10° </span> </div>
+        </div> `;
+  });
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElemnet.innerHTML = forcastHTML;
+}
 
 function displayTemperature(response) {
   console.log(response.data);
@@ -89,3 +109,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Perth");
+displayForcast();
